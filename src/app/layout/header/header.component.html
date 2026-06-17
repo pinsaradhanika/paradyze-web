@@ -1,0 +1,44 @@
+<header class="site-header">
+  <div class="announcement">
+    <div class="marquee-track">
+      <span>Complimentary shipping over LKR 20,000</span>
+      <span>·</span>
+      <span>Slow fashion essentials</span>
+      <span>·</span>
+      <span>New collection now available</span>
+    </div>
+  </div>
+
+  <div class="nav-container">
+    <button class="menu-btn" (click)="isMenuOpen = true">☰</button>
+
+    <nav class="desktop-nav">
+      @for (link of links; track link.label) {
+        <a [routerLink]="link.path">{{ link.label }}</a>
+      }
+    </nav>
+
+    <a routerLink="/" class="logo">PARADYZE</a>
+
+    <div class="nav-icons">
+      <a routerLink="/account">👤</a>
+      <a routerLink="/wishlist">♡</a>
+      <a routerLink="/cart">🛍</a>
+    </div>
+  </div>
+
+  @if (isMenuOpen) {
+    <div class="mobile-menu">
+      <div class="mobile-menu-header">
+        <span>Menu</span>
+        <button (click)="isMenuOpen = false">×</button>
+      </div>
+
+      @for (link of links; track link.label) {
+        <a [routerLink]="link.path" (click)="isMenuOpen = false">
+          {{ link.label }}
+        </a>
+      }
+    </div>
+  }
+</header>

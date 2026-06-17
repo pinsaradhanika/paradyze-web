@@ -1,0 +1,65 @@
+<section class="hero">
+  <img src="/assets/images/hero.jpg" alt="Paradyze campaign">
+
+  <div class="hero-content">
+    <p class="eyebrow">Tropical Elegance</p>
+    <h1>Made slowly,<br>worn beautifully.</h1>
+
+    <div class="hero-actions">
+      <a routerLink="/shop" class="primary-btn">Shop Collection</a>
+      <a routerLink="/about" class="text-link">Our Story</a>
+    </div>
+  </div>
+</section>
+
+<section class="collections">
+  <a routerLink="/shop" class="collection-card">
+    <img src="/assets/images/collection1.jpg" alt="New collection">
+    <p class="eyebrow">Edit 01</p>
+    <h3>Whispers of Nature</h3>
+  </a>
+
+  <a routerLink="/shop" class="collection-card">
+    <img src="/assets/images/collection2.jpg" alt="Summer collection">
+    <p class="eyebrow">Edit 02</p>
+    <h3>Tropical Ease</h3>
+  </a>
+</section>
+
+<section class="product-section">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">Just landed</p>
+      <h2>New Arrivals</h2>
+    </div>
+    <a routerLink="/shop">View all</a>
+  </div>
+
+  <div class="product-grid">
+    @for (product of newArrivals; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+</section>
+
+<section class="promo">
+  <p class="eyebrow">Slow fashion</p>
+  <h2>Thoughtfully designed pieces for every season.</h2>
+  <a routerLink="/shop">Shop now</a>
+</section>
+
+<section class="story-section">
+  <img src="/assets/images/story.jpg" alt="Paradyze story">
+
+  <div>
+    <p class="eyebrow">Our house</p>
+    <h2>Crafted thoughtfully.</h2>
+    <p>
+      Paradyze celebrates tropical elegance through timeless, feminine pieces
+      made with care and intention.
+    </p>
+    <a routerLink="/about">Read our story</a>
+  </div>
+</section>
+
+<app-newsletter></app-newsletter>

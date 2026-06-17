@@ -1,0 +1,31 @@
+<a [routerLink]="['/product', product.id]" class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+
+    @if (product.isNew) {
+      <span class="badge">New</span>
+    }
+
+    @if (product.salePrice) {
+      <span class="badge sale">Sale</span>
+    }
+
+    <button class="wishlist-btn" type="button">♡</button>
+  </div>
+
+  <div class="product-info">
+    <div>
+      <p class="category">{{ product.category }}</p>
+      <h3>{{ product.name }}</h3>
+    </div>
+
+    <p class="price">
+      @if (product.salePrice) {
+        <span class="old-price">LKR {{ product.price }}</span>
+        <span class="sale-price">LKR {{ product.salePrice }}</span>
+      } @else {
+        <span>LKR {{ product.price }}</span>
+      }
+    </p>
+  </div>
+</a>
