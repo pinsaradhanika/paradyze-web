@@ -11,7 +11,7 @@
 
 .product-image {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 0.72;
   overflow: hidden;
   background: #e5ded4;
   border-radius: 0;
@@ -48,8 +48,8 @@
   top: 14px;
   right: 14px;
   z-index: 2;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border: 0;
   border-radius: 50%;
   background: rgba(250, 248, 244, 0.88);
@@ -68,13 +68,13 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 12px;
-  padding-top: 14px;
+  padding-top: 10px;
 
   h3 {
     margin: 4px 0 0;
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.35;
+    font-size: 0.8rem;
+    line-height: 1.3;
     color: #111;
     font-weight: 400;
   }
@@ -82,7 +82,7 @@
 
 .category {
   margin: 0;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #4f5b5b;
