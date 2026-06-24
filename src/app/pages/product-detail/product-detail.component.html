@@ -1,1 +1,104 @@
-<p>product-detail works!</p>
+@if (product) {
+<section class="product-detail-page">
+
+    <nav class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+
+        <a routerLink="/shop">Shop</a>
+        <span>/</span>
+
+        <span>{{ product?.name }}</span>
+    </nav>
+
+    <div class="product-layout">
+        <div class="product-gallery">
+            <img class="main-image" [src]="product.image" [alt]="product.name">
+            <img [src]="product.image" [alt]="product.name">
+            <img [src]="product.image" [alt]="product.name">
+        </div>
+
+        <aside class="product-summary">
+            <p class="eyebrow">{{ product.category }}</p>
+            <h1>{{ product.name }}</h1>
+            <p class="price">LKR {{ product.price }}</p>
+
+            <p class="description">{{ product.description }}</p>
+
+            <div class="option-group color-group">
+                <h3>Color · {{ selectedColor }}</h3>
+
+                <div class="color-list">
+                    @for (color of product.colors; track color) {
+                    <button type="button" class="color-swatch" [class.active]="selectedColor === color"
+                        [style.background]="getColorValue(color)" [attr.aria-label]="color"
+                        (click)="selectedColor = color">
+                    </button>
+                    }
+                </div>
+            </div>
+
+            <div class="option-group">
+                <div class="size-header">
+                    <h3>Size</h3>
+                    <a>Size guide</a>
+                </div>
+
+                <div class="option-list">
+                    @for (size of product.sizes; track size) {
+                    <button type="button" [class.active]="selectedSize === size" (click)="selectedSize = size">
+                        {{ size }}
+                    </button>
+                    }
+                </div>
+            </div>
+
+            <div class="action-row">
+                <div class="quantity">
+                    <button type="button" (click)="decreaseQuantity()">−</button>
+                    <span>{{ quantity }}</span>
+                    <button type="button" (click)="increaseQuantity()">+</button>
+                </div>
+
+                <button class="add-to-bag" type="button">Add to Bag</button>
+                <button class="wishlist-action" type="button">♡</button>
+            </div>
+
+            <div class="delivery-row">
+                <span>Free shipping over LKR 20,000</span>
+                <span>7-day returns</span>
+            </div>
+
+            <div class="product-notes">
+                <details open>
+                    <summary>Description</summary>
+                    <p>{{ product.description }}</p>
+                </details>
+
+                <details>
+                    <summary>Fabric & Care</summary>
+                    <p>{{ product.fabric }}</p>
+                </details>
+
+                <details>
+                    <summary>Shipping & Returns</summary>
+                    <p>Islandwide delivery available. Returns accepted within 7 days for eligible items.</p>
+                </details>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="related-products">
+    <div class="section-header">
+        <h2>You may also like</h2>
+        <a routerLink="/shop">View all</a>
+    </div>
+
+    <div class="product-grid">
+        @for (product of relatedProducts; track product.id) {
+        <app-product-card [product]="product"></app-product-card>
+        }
+    </div>
+</section>
+}
