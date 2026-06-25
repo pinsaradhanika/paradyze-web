@@ -1,44 +1,53 @@
 <header class="site-header">
   <div class="announcement">
     <div class="marquee-track">
-      <span>Complimentary shipping over LKR 20,000</span>
-      <span>·</span>
-      <span>Slow fashion essentials</span>
-      <span>·</span>
-      <span>New collection now available</span>
+      <span>COMPLIMENTARY SHIPPING OVER LKR 20,000</span>
+      <span>•</span>
+      <span>SLOW FASHION ESSENTIALS</span>
+      <span>•</span>
+      <span>NEW COLLECTION NOW AVAILABLE</span>
+      <span>•</span>
+
+      <span>COMPLIMENTARY SHIPPING OVER LKR 20,000</span>
+      <span>•</span>
+      <span>SLOW FASHION ESSENTIALS</span>
+      <span>•</span>
+      <span>NEW COLLECTION NOW AVAILABLE</span>
+      <span>•</span>
     </div>
   </div>
 
   <div class="nav-container">
-    <button class="menu-btn" (click)="isMenuOpen = true">☰</button>
+    <button class="menu-btn" (click)="isMenuOpen = !isMenuOpen">
+      ☰
+    </button>
 
     <nav class="desktop-nav">
       @for (link of links; track link.label) {
-        <a [routerLink]="link.path">{{ link.label }}</a>
+      <a [routerLink]="link.path">{{ link.label }}</a>
       }
     </nav>
 
     <a routerLink="/" class="logo">PARADYZE</a>
 
     <div class="nav-icons">
-      <a routerLink="/account">👤</a>
-      <a routerLink="/wishlist">♡</a>
-      <a routerLink="/cart">🛍</a>
+      <a routerLink="/account" class="desktop-only">Account</a>
+      <a routerLink="/wishlist" class="desktop-only">Wishlist</a>
+      <a routerLink="/cart" class="desktop-only">Bag</a>
+
+      <a routerLink="/account" class="mobile-only">👤</a>
+      <a routerLink="/wishlist" class="mobile-only">♡</a>
+      <a routerLink="/cart" class="mobile-only">🛍</a>
     </div>
   </div>
 
   @if (isMenuOpen) {
-    <div class="mobile-menu">
-      <div class="mobile-menu-header">
-        <span>Menu</span>
-        <button (click)="isMenuOpen = false">×</button>
-      </div>
-
-      @for (link of links; track link.label) {
-        <a [routerLink]="link.path" (click)="isMenuOpen = false">
-          {{ link.label }}
-        </a>
-      }
-    </div>
+  <div class="mobile-menu">
+    @for (link of links; track link.label) {
+    <a [routerLink]="link.path" (click)="isMenuOpen = false">
+      {{ link.label }}
+    </a>
+    }
+  </div>
   }
 </header>

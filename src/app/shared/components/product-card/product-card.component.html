@@ -10,7 +10,9 @@
       <span class="badge sale">Sale</span>
     }
 
-    <button class="wishlist-btn" type="button">♡</button>
+    <button class="wishlist-btn" type="button" (click)="$event.preventDefault(); $event.stopPropagation()">
+        ♡
+    </button>
   </div>
 
   <div class="product-info">

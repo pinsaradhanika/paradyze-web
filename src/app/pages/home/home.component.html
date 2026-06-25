@@ -48,6 +48,21 @@
   <a routerLink="/shop">Shop now</a>
 </section>
 
+<section class="product-section">
+  <div class="section-header">
+    <div>
+      <h2>Best Sellers</h2>
+    </div>
+    <a routerLink="/shop">View all</a>
+  </div>
+
+  <div class="product-grid">
+    @for (product of bestSellers; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+</section>
+
 <section class="story-section">
   <img src="/assets/images/story.jpg" alt="Paradyze story">
 
@@ -59,6 +74,32 @@
       made with care and intention.
     </p>
     <a routerLink="/about">Read our story</a>
+  </div>
+</section>
+
+<section class="instagram-section">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">&#64;PARADYZE.LK</p>
+      <h2>Styled for tropical living.</h2>
+    </div>
+
+    <a
+      href="https://instagram.com/paradyze.lk"
+      target="_blank"
+      rel="noopener"
+    >
+      Follow
+    </a>
+  </div>
+
+  <div class="instagram-grid">
+    <img src="/assets/images/p3.jpg" alt="Paradyze style inspiration">
+    <img src="/assets/images/p4.jpg" alt="Paradyze style inspiration">
+    <img src="/assets/images/p5.jpg" alt="Paradyze style inspiration">
+    <img src="/assets/images/p1.jpg" alt="Paradyze style inspiration">
+    <img src="/assets/images/p6.jpg" alt="Paradyze style inspiration">
+    <img src="/assets/images/p8.jpg" alt="Paradyze style inspiration">
   </div>
 </section>
 

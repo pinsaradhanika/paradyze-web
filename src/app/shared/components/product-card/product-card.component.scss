@@ -1,66 +1,140 @@
 .product-card {
   display: block;
+  height: 100%;
+
+  &:hover {
+    .product-image img {
+      transform: scale(1.055);
+    }
+  }
 }
 
 .product-image {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 0.72;
   overflow: hidden;
-  background: #E5DED4;
+  background: #e5ded4;
+  border-radius: 0;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
-  }
-
-  &:hover img {
-    transform: scale(1.04);
+    transition: transform 900ms cubic-bezier(0.2, 0.6, 0.2, 1);
   }
 }
 
 .badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: #FAF8F4;
-  padding: 6px 10px;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: #faf8f4;
+  color: #0d4d4d;
+  padding: 7px 11px;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+  font-weight: 600;
+}
+
+.badge.sale {
+  background: #9e3b2f;
+  color: #fff;
 }
 
 .wishlist-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #FAF8F4;
-  border: 0;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
   width: 34px;
   height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(250, 248, 244, 0.88);
+  color: #0d4d4d;
   cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 250ms ease, transform 250ms ease;
+
+  &:hover {
+    background: #faf8f4;
+    transform: scale(1.06);
+  }
 }
 
 .product-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding-top: 10px;
 
   h3 {
     margin: 4px 0 0;
-    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: #111;
+    font-weight: 400;
   }
 }
 
 .category {
-  font-size: 0.75rem;
+  margin: 0;
+  font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #6c6c6c;
+  color: #4f5b5b;
+  font-weight: 500;
 }
 
 .price {
+  margin: 22px 0 0;
   white-space: nowrap;
+  font-size: 0.9rem;
+  color: #111;
+}
+
+.old-price {
+  display: block;
+  text-decoration: line-through;
+  color: #8c867d;
+  margin-bottom: 4px;
+}
+
+.sale-price {
+  color: #9e3b2f;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .product-info {
+    display: block;
+  }
+
+  .product-info h3 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .category {
+    font-size: 0.6rem;
+  }
+
+  .price {
+    padding-top: 8px;
+    font-size: 0.8rem;
+  }
+
+  .badge {
+    font-size: 0.55rem;
+    padding: 5px 8px;
+  }
+
+  .wishlist-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
 }

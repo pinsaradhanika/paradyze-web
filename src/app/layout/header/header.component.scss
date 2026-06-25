@@ -13,9 +13,25 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 8px 0;
-  text-align: center;
   background: #0D4D4D;
   color: #fff;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: marquee 50s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .nav-container {
@@ -29,12 +45,24 @@
 .desktop-nav,
 .nav-icons {
   display: flex;
-  gap: 24px;
+  gap: 22px;
   align-items: center;
+}
+
+.desktop-nav a {
+  transition: opacity .25s ease;
+}
+
+.desktop-nav a:hover {
+  opacity: .6;
 }
 
 .nav-icons {
   justify-content: flex-end;
+}
+
+.nav-icons a:hover {
+  opacity: .6;
 }
 
 .logo {
@@ -48,7 +76,33 @@
   display: none;
 }
 
+.desktop-only {
+  display: inline-block;
+}
+
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .announcement {
+    font-size: 0.52rem;
+    padding: 6px 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-container {
+    height: 64px;
+    padding: 0 16px;
+    grid-template-columns: auto 1fr auto;
+  }
+
   .desktop-nav {
     display: none;
   }
@@ -57,6 +111,51 @@
     display: block;
     background: none;
     border: 0;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    color: #0D4D4D;
+    cursor: pointer;
   }
+
+  .logo {
+    justify-self: center;
+    font-size: 1.35rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-icons {
+    gap: 12px;
+    font-size: 0.85rem;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #FAF8F4;
+    border-top: 1px solid #E5DED4;
+    border-bottom: 1px solid #E5DED4;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 1001;
+
+    a {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #0D4D4D;
+    }
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-block;
+    font-size: 1.1rem;
+  }
+
 }
